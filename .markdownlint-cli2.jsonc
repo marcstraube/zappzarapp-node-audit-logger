@@ -1,0 +1,24 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD033": false,
+    "MD041": false,
+    "MD046": {
+      "style": "fenced"
+    },
+    "MD024": {
+      "siblings_only": true
+    },
+    "MD055": false,
+    "MD060": false
+  },
+  "ignores": [
+    "**/node_modules/**",
+    "dist/**",
+    "coverage/**",
+    ".git/**",
+    "CHANGELOG.md",
+    ".claude/**"
+  ]
+}

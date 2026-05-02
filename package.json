@@ -1,0 +1,90 @@
+{
+  "name": "@zappzarapp/audit-logger",
+  "version": "1.0.0",
+  "description": "GDPR-compliant audit logging with injectable encryption, configurable storage, and tamper-proof checksums",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint 'src/**/*.ts' 'tests/**/*.ts' --max-warnings=0",
+    "lint:fix": "eslint 'src/**/*.ts' 'tests/**/*.ts' --fix",
+    "lint:md": "markdownlint-cli2 '**/*.md'",
+    "lint:md:fix": "markdownlint-cli2 --fix '**/*.md'",
+    "lint:secrets": "secretlint '**/*'",
+    "format": "prettier --write 'src/**/*.ts' 'tests/**/*.ts' '**/*.json' '**/*.md' '!node_modules/**' '!dist/**' '!coverage/**' '!pnpm-lock.yaml' '!CHANGELOG.md'",
+    "format:check": "prettier --check 'src/**/*.ts' 'tests/**/*.ts' '**/*.json' '**/*.md' '!node_modules/**' '!dist/**' '!coverage/**' '!pnpm-lock.yaml' '!CHANGELOG.md'",
+    "typecheck": "tsc --noEmit",
+    "mutation": "stryker run",
+    "docs": "typedoc",
+    "sbom": "cdxgen -t js -o sbom.cdx.json --spec-version 1.5 --no-recurse --no-babel",
+    "depcruise": "depcruise src --config .dependency-cruiser.cjs",
+    "security": "pnpm audit --prod --audit-level=moderate",
+    "quality": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run depcruise && pnpm audit --prod --audit-level=moderate",
+    "prepare": "husky || true"
+  },
+  "keywords": [
+    "audit",
+    "audit-log",
+    "gdpr",
+    "logging",
+    "compliance",
+    "encryption",
+    "security",
+    "typescript"
+  ],
+  "author": "Marc Straube <email@marcstraube.de>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcstraube/zappzarapp-node-audit-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcstraube/zappzarapp-node-audit-logger/issues"
+  },
+  "homepage": "https://github.com/marcstraube/zappzarapp-node-audit-logger#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@cyclonedx/cdxgen": "^12.3.1",
+    "@eslint/compat": "^2.0.5",
+    "@secretlint/secretlint-rule-preset-recommend": "^12.3.1",
+    "@stryker-mutator/core": "^9.6.1",
+    "@stryker-mutator/vitest-runner": "^9.6.1",
+    "@types/node": "^25.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.1",
+    "@typescript-eslint/parser": "^8.59.1",
+    "@vitest/coverage-v8": "^4.1.5",
+    "dependency-cruiser": "^17.3.10",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsdoc": "^62.9.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-security": "^4.0.0",
+    "eslint-plugin-sonarjs": "^4.0.3",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "markdownlint-cli2": "^0.22.1",
+    "prettier": "^3.8.3",
+    "secretlint": "^12.3.1",
+    "typedoc": "^0.28.19",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

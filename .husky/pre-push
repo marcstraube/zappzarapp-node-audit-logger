@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "Running pre-push quality checks..."
+
+pnpm run quality
+
+echo "Pre-push checks passed!"

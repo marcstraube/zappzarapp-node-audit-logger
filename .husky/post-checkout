@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Fix root config file permissions (644)
+find . -maxdepth 1 -type f \( -name '*.json' -o -name '*.js' -o -name '*.cjs' -o -name '*.ts' -o -name '*.yaml' -o -name '*.yml' -o -name '*.md' -o -name 'LICENSE' \) -not -perm 644 -exec chmod 644 {} +
