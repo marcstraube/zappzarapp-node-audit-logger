@@ -1,0 +1,54 @@
+name: Verify Tag Signature
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-tag:
+    name: Verify release tag is GPG-signed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify tag signature (via GitHub API)
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const tag = context.ref.replace('refs/tags/', '');
+
+            const { data: ref } = await github.rest.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `tags/${tag}`,
+            });
+
+            // Annotated tags resolve to a tag object; lightweight tags point
+            // straight to a commit. Verify whichever the tag references.
+            let verification;
+            if (ref.object.type === 'tag') {
+              const { data: tagObject } = await github.rest.git.getTag({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag_sha: ref.object.sha,
+              });
+              verification = tagObject.verification;
+            } else {
+              const { data: commit } = await github.rest.repos.getCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: ref.object.sha,
+              });
+              verification = commit.commit.verification;
+            }
+
+            if (!verification || !verification.verified) {
+              core.setFailed(
+                `Tag ${tag} is not verified (reason: ${verification?.reason ?? 'unknown'}).\n` +
+                  'Release tags must be GPG-signed. Create signed tags with: git tag -s'
+              );
+            } else {
+              core.info(`Tag ${tag} is verified.`);
+            }
