@@ -57,7 +57,7 @@
   "homepage": "https://github.com/marcstraube/zappzarapp-node-audit-logger#readme",
   "devDependencies": {
     "@commitlint/cli": "^21.0.2",
-    "@commitlint/config-conventional": "^20.5.3",
+    "@commitlint/config-conventional": "^21.0.2",
     "@cyclonedx/cdxgen": "^12.3.1",
     "@eslint/compat": "^2.0.5",
     "@secretlint/secretlint-rule-preset-recommend": "^13.0.2",
