@@ -21,8 +21,8 @@ importers:
         specifier: ^2.0.5
         version: 2.0.5(eslint@10.3.0(jiti@2.6.1))
       '@secretlint/secretlint-rule-preset-recommend':
-        specifier: ^12.3.1
-        version: 12.3.1
+        specifier: ^13.0.2
+        version: 13.0.2
       '@stryker-mutator/core':
         specifier: ^9.6.1
         version: 9.6.1(@types/node@25.6.0)
@@ -1022,8 +1022,8 @@ packages:
   '@secretlint/resolver@12.3.1':
     resolution: {integrity: sha512-/QwcX5azKRdz9mBIbTBUsqp+cmWQZYGNdOHLbsMOBTLXa7KoEBffhmeaMSc0kNSrdgbgfu/7j+qeeaF4QwJf3A==}
 
-  '@secretlint/secretlint-rule-preset-recommend@12.3.1':
-    resolution: {integrity: sha512-w9x9rIP1+qhV0k9k15aSIBo+6NrM4npAYIoNs7UmKIxuQSA6b91rhWpdMxgCv2/EQtym+gpuyN7rTSvG5wlYlw==}
+  '@secretlint/secretlint-rule-preset-recommend@13.0.2':
+    resolution: {integrity: sha512-D03Kw51qOgffj9zNlJFZUarVmP8zGcCZNi7A14+vZtHskbbBPEsS/f09idb48rrlMSaRMBN29IkqfbmPyL9xtw==}
     engines: {node: '>=22.0.0'}
 
   '@secretlint/source-creator@12.3.1':
@@ -4345,7 +4345,7 @@ snapshots:
 
   '@secretlint/resolver@12.3.1': {}
 
-  '@secretlint/secretlint-rule-preset-recommend@12.3.1': {}
+  '@secretlint/secretlint-rule-preset-recommend@13.0.2': {}
 
   '@secretlint/source-creator@12.3.1':
     dependencies:
