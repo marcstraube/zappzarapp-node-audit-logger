@@ -1,2 +1,9 @@
 allowBuilds:
   esbuild: true
+
+overrides:
+  vite: 7.3.6
+  esbuild: '>=0.28.1 <0.29'
+  '@babel/core': '>=7.29.6 <8'
+  js-yaml@5: '>=5.2.2'
+  fast-uri@3: '>=3.1.4'
