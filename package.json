@@ -79,7 +79,7 @@
     "lint-staged": "^17.0.7",
     "markdownlint-cli2": "^0.24.0",
     "prettier": "^3.8.3",
-    "secretlint": "^13.0.2",
+    "secretlint": "^14.0.1",
     "typedoc": "^0.28.19",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
